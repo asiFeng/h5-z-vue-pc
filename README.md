@@ -4,7 +4,10 @@
 
 ## Build Setup
 
-
+```javascript
 npm install
 npm run dev
+```
+
+
 
