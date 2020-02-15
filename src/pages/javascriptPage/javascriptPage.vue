@@ -83,15 +83,19 @@
 		<el-button @click="ArrayTest">ArrayTest</el-button>
 
 		<el-button @click="definePropertyTest">definePropertyTest</el-button>
+		<el-button @click="jsonTest" draggable>jsonTest</el-button>
 		<!-- <el-button @click=""></el-button> -->
 
 
-		<div style="width:300px;height:500px;">
+		<div style="width:300px;">
 			<article>这是个article</article>
 			<header>这是个header</header>
 			<footer>这是个footer</footer>
 		</div>
 
+		<ul class="ulEle">
+			<li>1</li>
+		</ul>
 
 
 
@@ -131,6 +135,11 @@ export default {
 	},
 
 	mounted(){
+
+		const ul = document.getElementsByClassName('ulEle')[0];
+		const li = document.createElement('li');
+		li.innerHTML ='33333';
+		ul.appendChild(li);
 		console.log('this.tryArgumentsLength.length:  ', this.tryArgumentsLength.length);
 		
 		// this.xhrTest();
@@ -169,6 +178,36 @@ export default {
 	},
 
 	methods: {
+
+		jsonTest(){
+			const { log } = console;
+			let obj = {
+				name:"阿肆",
+				age: "secret",
+				skills:["java","javascript","html","css"],
+				boyfriend: undefined,
+				date: new Date(),
+			};
+			log( obj );
+			log( JSON.stringify( obj, ["name", "age"] ) );
+			log( JSON.stringify( obj, (key, val)=>{
+				if(key=="age"){
+					return 30;
+				}
+				return val;
+			} ) );
+			log( JSON.stringify( obj,null , 4) );
+			log( JSON.stringify( obj, null, "----") );
+
+			log( JSON.parse(JSON.stringify(obj)) );
+			log( JSON.parse(JSON.stringify(obj), (key,val)=>{
+				if(key == "date"){
+					val = new Date(val);
+				}
+				return val;
+			}) );
+			
+		},
 
 		tryArgumentsLength( x,y,z=3){
 			console.log('length:   ', this.length);

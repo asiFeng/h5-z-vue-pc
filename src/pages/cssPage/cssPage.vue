@@ -34,6 +34,13 @@
         <div>
             <div id="mobile-model"></div>
         </div>
+
+        <div style="border:1px solid #333;padding:20px;line-height:2rem;">
+            <div class="triangle"></div>
+            <div class="triangle-r"></div><p>asi @ 13/02/2020</p>
+            <div class="triangle-top"></div>
+        </div>
+        <div class="target"></div>
     </div>
 </template>
 
@@ -105,6 +112,47 @@
 
 
 <style lang="scss">
+.target{
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    box-shadow: 1px 1px 1PX 5px RED inset,1px 1px 2PX 10px #333 inset;
+}
+
+.triangle {
+width:0px;
+height:0px;
+border-top:10px solid red;
+border-right:10px solid transparent;
+border-left:10px solid transparent;
+border-bottom:10px solid transparent;
+border-bottom:10px solid green;
+}
+.triangle-r{
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #999;
+}
+
+.triangle-top{
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid blueviolet;
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent;
+}
+
+.triangle-r+div,
+.triangle-r+p{
+    display: inline-block;
+}
+
+
 #mobile-model{
     width: calc(375px/2);
     height: calc(667px/2);
