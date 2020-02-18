@@ -1,5 +1,9 @@
 <template>
 	<div style="width:100%;">
+		<div>
+			<el-button @click="addOneBox">+</el-button>
+			<el-button @click="delOneBox" v-if="colorBoxs.length">-</el-button>
+		</div>
 		<div  style="display:none;">
 			<div class="event-test-container">
 				<el-button @click="doWaitEvent">doWaitEvent</el-button>
@@ -65,8 +69,6 @@
 				<el-button @click="testClass">testClass</el-button>
 				<el-button @click="testClassExtends">testClassExtends</el-button>
 				<el-button @click="collectionTest">collectionTest</el-button>
-				<el-button @click="addOneBox">+</el-button>
-				<el-button @click="delOneBox" v-if="colorBoxs.length">-</el-button>
 				<el-button @click="mapArrayTest">mapArrayTest</el-button>
 				<el-button @click="asyncExecuteOrder">asyncExecuteOrder</el-button>
 				<el-button @click="realizeNewFunc">realizeNewFunc</el-button>
