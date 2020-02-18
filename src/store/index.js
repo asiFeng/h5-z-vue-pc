@@ -10,6 +10,7 @@ const store = new Vuex.Store({
             { page: "nodePage",         pageName: "node 技术栈" },
             { page: "javascriptPage",   pageName: "js 技术栈" },
             { page: "cssPage",          pageName: "css 技术栈" },
+            { page: "echartsPage",      pageName: "echarts 技术栈" },
         ],
     },
 

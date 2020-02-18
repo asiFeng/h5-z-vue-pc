@@ -57,7 +57,9 @@ $bg-d-gray: #e1e1e1;
         line-height: 44px;
         background-color: #000;
         color: #fff;
+        padding-left: 20px;
     }
+    background-color: #f1f1f1;
 }
 
 
@@ -73,6 +75,7 @@ $bg-d-gray: #e1e1e1;
     ul{
         list-style: none;
         padding-left: 0;
+        margin-top: 10px;
     }
     li{
         padding-left: 20px;
@@ -86,17 +89,14 @@ $bg-d-gray: #e1e1e1;
 .main-content{
     margin-left: 15%;
     border-left: 2px solid #fff;
-
     padding: 10px 0px;
-    // float: left;
-    // width: 85%;
     height: 100%;
-    // margin-left: 4px;
     .el-header{
         background-color: $bg-l-gray;
         color: yellow;
     }
     background-color: #f1f1f1;
+    overflow: scroll;
 }
 
 .bread-cast{
@@ -104,7 +104,7 @@ $bg-d-gray: #e1e1e1;
     border-bottom: 1px solid #fff;
 }
 body{
-    height: unset!important
+    // height: unset!important
 }
 
 
