@@ -140,11 +140,12 @@ border-bottom:10px solid green;
 }
 
 .triangle-top{
-    width: 0;
-    height: 0;
-    border-bottom: 20px solid blueviolet;
-    border-left: 10px solid transparent; 
+    width: 0px;
+    height: 0px;
+    border-bottom: 120px solid blueviolet;
+    border-left: 60px solid transparent; 
     border-right: 10px solid transparent;
+    transform: rotate(20deg);
 }
 
 .triangle-r+div,
