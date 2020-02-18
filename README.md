@@ -9,5 +9,10 @@ npm install
 npm run dev
 ```
 
+## Content
+- javascript & ES6
+- css
+- Echarts
+
 
 
