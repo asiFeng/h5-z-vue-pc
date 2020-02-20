@@ -1,10 +1,12 @@
 <template>
     <div>
-        <collapse title="tititit" open>
+        <collapse title="入门01" open>
             <div id="kkk" style="width:600px;height:400px;"></div>
         </collapse>
 
-        11
+        <collapse title="" open>
+        </collapse>
+
     </div>
 </template>
 
@@ -13,7 +15,7 @@ export default {
     data(){
         return {}
     },
-    mounted(){        
+    mounted(){       
         // 基于准备好的dom，初始化echarts实例
         var myChart = this.$echarts.init(document.getElementById('kkk'));
 

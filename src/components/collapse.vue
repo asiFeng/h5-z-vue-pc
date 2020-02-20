@@ -41,17 +41,21 @@ export default {
 
 <style lang="scss">
 .title{
+    line-height: 1.6;
+    color: rgb(0, 20, 134);
+    background-color:lightsteelblue;
     margin-bottom: 10px;
     font-size: 18px;
     font-weight: bolder;
     border-bottom: 1px dotted #fff;
+    letter-spacing: 2px;
 }
 .title::before{
     content: "";
-    line-height: 1;
     padding-right: 6px;
     margin-right: 14px;
-    background-color: cornflowerblue;
+    // background-color: cornflowerblue;
+    background-color: rgb(217, 229, 252);
 }
 
 .content{
@@ -61,6 +65,7 @@ export default {
 .hide-el{
     visibility: hidden;
     height: 0;
+    margin: 0;
 }
 
 </style>
