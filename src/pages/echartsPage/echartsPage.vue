@@ -1,11 +1,14 @@
 <template>
     <div>
         <collapse title="入门01" open>
-            <div id="kkk" style="width:600px;height:400px;"></div>
+            <div id="ele01" style="width:400px;height:300px;"></div>
         </collapse>
 
         <collapse title="" open>
         </collapse>
+
+        <!-- <collapse title="" open>
+        </collapse> -->
 
     </div>
 </template>
@@ -17,7 +20,7 @@ export default {
     },
     mounted(){       
         // 基于准备好的dom，初始化echarts实例
-        var myChart = this.$echarts.init(document.getElementById('kkk'));
+        var myChart = this.$echarts.init(document.getElementById('ele01'));
 
         // 指定图表的配置项和数据
         var option = {

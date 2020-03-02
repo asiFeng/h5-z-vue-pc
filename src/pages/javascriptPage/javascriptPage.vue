@@ -99,6 +99,9 @@
 			<li>1</li>
 		</ul>
 
+		<el-button @click="createTest">createTest</el-button>
+		<el-button @click="setTime">setTime</el-button>
+
 
 
 
@@ -109,6 +112,7 @@
 <script>
 import { waitEvent } from "@/utils/util.js";
 import { setTimeout } from 'timers';
+import { setTime } from '@/utils/date';
 const mapArray = require('map-array');
 
 export default {
@@ -180,6 +184,41 @@ export default {
 	},
 
 	methods: {
+
+		setTime,
+
+		// 继承
+		createTest(){
+			// Shape - 父类(superclass)
+			function Shape() {
+			this.x = 6;
+			this.y = 6;
+			}
+
+			// 父类的方法
+			Shape.prototype.move = function(x, y) {
+				this.x += x;
+				this.y += y;
+			console.info('Shape moved.');
+			};
+
+			// Rectangle - 子类(subclass)
+			function Rectangle() {
+			Shape.call(this); // call super constructor.
+			}
+
+			// 子类续承父类
+			Rectangle.prototype = Object.create(Shape.prototype);
+			Rectangle.prototype.constructor = Rectangle;
+
+			var rect = new Rectangle();
+
+			console.log('Is rect an instance of Rectangle?',
+			rect instanceof Rectangle); // true
+			console.log('Is rect an instance of Shape?',
+			rect instanceof Shape); // true
+			rect.move(1, 1); // Outputs, 'Shape moved.'
+		},
 
 		jsonTest(){
 			const { log } = console;
