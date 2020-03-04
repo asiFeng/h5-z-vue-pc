@@ -7,3 +7,7 @@ export function waitEvent( inv = 1000){
 }
 
 
+export const show = function show( msg ){
+    alert(msg);
+}
+

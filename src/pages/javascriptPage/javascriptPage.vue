@@ -1,10 +1,6 @@
 <template>
 	<div style="width:100%;">
-		<div>
-			<el-button @click="addOneBox">+</el-button>
-			<el-button @click="delOneBox" v-if="colorBoxs.length">-</el-button>
-		</div>
-		<div  style="display:none;">
+		<collapse title="Part 1">
 			<div class="event-test-container">
 				<el-button @click="doWaitEvent">doWaitEvent</el-button>
 				<el-button @click="promiseTest">promiseTest</el-button>
@@ -75,32 +71,50 @@
 				<el-button @click="testObjToArray">testObjToArray</el-button>
 			</div>
 
-		</div>
+		</collapse>
 		<!-- style="display:none;"  ------------------  结束 ---------------->
+		<collapse title="Part 2：添加box">
+			<div>
+				<el-button @click="addOneBox">+</el-button>
+				<el-button @click="delOneBox" v-if="colorBoxs.length">-</el-button>
+			</div>
+			<div class="flex-container">
+				<div class="flex-item" v-for="(item,index) in colorBoxs" :key="index" :style="{backgroundColor:item.color}"></div>
+			</div>
+		</collapse>
+		<collapse title="Part 3">
+			<el-button @click="ArrayTest">ArrayTest</el-button>
+
+			<el-button @click="definePropertyTest">definePropertyTest</el-button>
+			<el-button @click="jsonTest" draggable>jsonTest</el-button>
+			<!-- <el-button @click=""></el-button> -->
 
 
-		<div class="flex-container">
-			<div class="flex-item" v-for="(item,index) in colorBoxs" :key="index" :style="{backgroundColor:item.color}"></div>
-		</div>
-		<el-button @click="ArrayTest">ArrayTest</el-button>
+			<div style="width:300px;">
+				<article>这是个article</article>
+				<header>这是个header</header>
+				<footer>这是个footer</footer>
+			</div>
 
-		<el-button @click="definePropertyTest">definePropertyTest</el-button>
-		<el-button @click="jsonTest" draggable>jsonTest</el-button>
-		<!-- <el-button @click=""></el-button> -->
+			<ul class="ulEle">
+				<li>1</li>
+			</ul>
+
+			<el-button @click="createTest">createTest</el-button>
+			<el-button @click="setTime">setTime</el-button>
+		</collapse>
 
 
-		<div style="width:300px;">
-			<article>这是个article</article>
-			<header>这是个header</header>
-			<footer>这是个footer</footer>
-		</div>
-
-		<ul class="ulEle">
-			<li>1</li>
-		</ul>
-
-		<el-button @click="createTest">createTest</el-button>
-		<el-button @click="setTime">setTime</el-button>
+		<collapse title="Part 4： HTML related" open>
+			<div>
+				<label for="selectVal">原生js获取select标签值</label>
+				<select name="selectVal" id="selectVal" @click="getVal">
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+				</select>
+			</div>
+		</collapse>
 
 
 
@@ -184,6 +198,13 @@ export default {
 	},
 
 	methods: {
+
+		getVal(){
+			let ele = document.getElementById("selectVal");
+			console.log("ele", ele.value);
+			console.log("ele", ele.options[ele.selectedIndex].text);
+			
+		},
 
 		setTime,
 

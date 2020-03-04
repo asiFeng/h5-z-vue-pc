@@ -1,7 +1,8 @@
 <template>
     <div>
         <collapse title="入门01" open>
-            <div id="ele01" style="width:400px;height:300px;"></div>
+            <div id="ele01" style="width:400px;height:300px;display:inline-block;"></div>
+            <div id="ele02" style="width:400px;height:300px;display:inline-block;"></div>
         </collapse>
 
         <collapse title="" open>
