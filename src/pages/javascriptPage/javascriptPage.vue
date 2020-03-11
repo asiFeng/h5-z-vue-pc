@@ -19,7 +19,7 @@
 			<div class="event-test-container">
 				<el-button @click="scopeTest">Es6 作用域测试</el-button>
 				<el-button @click="environmentTest">执行上下文测试</el-button>
-				<el-button @click="funcScope">闭包测试</el-button>
+				<el-button @click="funcScope">funcScope闭包测试</el-button>
 				<el-button @click="forEachTest">forEachTest</el-button>
 				<el-button @click="logTable">logTable</el-button>
 			</div>
@@ -1478,7 +1478,19 @@ export default {
 
 			let temp = outerFunc();
 			console.log('temp:',temp);
-			temp();			
+			temp();
+
+			function addNumScope(){
+				let n = 0;
+				return function(){
+					return n++;
+				}
+			}
+			let f1 = addNumScope();
+			let f2 = addNumScope();
+			console.log('f1',f1());
+			console.log('f1',f1());
+			console.log('f2',f2());
 		},
 		
 

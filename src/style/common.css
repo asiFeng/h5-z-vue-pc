@@ -1,3 +1,11 @@
 .p-page-left{
     padding-left: 20px;
 }
+.question{
+    color: rgb(167, 2, 2);
+    font-size: 12px;
+    font-weight: bold;
+}
+.question::before{
+    content: "??? : ";    
+}
