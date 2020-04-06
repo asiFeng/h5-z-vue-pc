@@ -13,6 +13,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "echarts": "^4.6.0",
     "lodash": "^4.17.15",
     "map-array": "^1.2.1",
