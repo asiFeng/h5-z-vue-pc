@@ -20,7 +20,9 @@
 <script>
 export default {
     data(){
-        return {}
+        return {
+            colorArr: { color: ['#000', '#333', '#555', '#999', '#aaa',  '#ccc'] }
+        }
     },
     mounted(){
         this.initEle01();
@@ -73,7 +75,7 @@ export default {
             };
 
             // 使用刚指定的配置项和数据显示图表。
-            myChart.setOption(option);
+            myChart.setOption( Object.assign(option, this.colorArr) );
         },
 
         initEle02(){
@@ -109,7 +111,8 @@ export default {
                         radius: 20,
                         type: 'pie',
                         encode:{itemName:3, value:4},
-                        color: ['#7EC0EE', '#FF9F7F', '#FFD700', '#C9C9C9', '#E066FF', '#C0FF3E']
+                        // color: ['#7EC0EE', '#FF9F7F', '#FFD700', '#C9C9C9', '#E066FF', '#C0FF3E']
+                        color: this.colorArr
                     }
                 ],
                 grid: {
@@ -117,13 +120,13 @@ export default {
                     bottom: 30
                 }
             };
-            echart.setOption( options );
+            echart.setOption( Object.assign(options, this.colorArr)  );
         },
 
         // pie03
         initEle03(){
             let pieChart = this.$echarts.init( document.getElementById('pie03') );
-            pieChart.setOption({
+            pieChart.setOption( Object.assign( {
                 title: {
                     text: '2020.03.11国内疫情数据'
                 },
@@ -173,7 +176,7 @@ export default {
                         },
                     }
                 ]
-            });
+            }, this.colorArr) );
         },
 
         getAsyncData( cb ){
@@ -202,11 +205,13 @@ export default {
                 ],
             };
             echart.showLoading();
+
+            let that = this;
             this.getAsyncData( function( data ){
                 echart.hideLoading();
                 options.xAxis = {data:data.label};
                 options.series[0].data = data.value;
-                echart.setOption( options );
+                echart.setOption( Object.assign(options, that.colorArr)  );
             });
 
 
