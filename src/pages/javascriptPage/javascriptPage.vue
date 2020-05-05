@@ -105,7 +105,7 @@
 		</collapse>
 
 
-		<collapse title="Part 4： HTML related" open>
+		<collapse title="Part 4： HTML related">
 			<div>
 				<label for="selectVal">原生js获取select标签值</label>
 				<select name="selectVal" id="selectVal" @click="getVal">
@@ -114,6 +114,10 @@
 					<option value="C">C</option>
 				</select>
 			</div>
+		</collapse>
+
+		<collapse title="Part 5: " open>
+			<div>scope</div>
 		</collapse>
 
 
@@ -1530,6 +1534,18 @@ export default {
 				let y = 2;
 			}
 			console.log('let y: ',y);
+
+			let num = 3.14;
+			function f(){
+				return num;
+			}
+
+			function g(){
+				let num = 3.1415926;
+				return f();
+			}
+
+			console.log('num in g function is: ', g());
 		},
 
 		rangeErrorTest(){

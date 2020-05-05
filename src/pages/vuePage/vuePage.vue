@@ -1,47 +1,50 @@
 <template>
   <div>
     <h1>vue Page</h1>
-    <h3>{{getTime()}}</h3>
-    <el-button @click="cc">dd</el-button>
-    <el-button @click="show('啥？')">show</el-button>
+    <h3>getTime: {{getTime()}}</h3>
 
-    <div class="editor-container">
-      <div @drop="dropCatch" @dragover.prevent>
-        <div class="from-box-01">
+    <collapse title="编辑器">
+      <el-button @click="cc">dd</el-button>
+      <el-button @click="show('啥？')">show</el-button>
+
+      <div class="editor-container">
+        <div @drop="dropCatch" @dragover.prevent>
+          <div class="from-box-01">
+            <span
+              :class="['target-item', 'type-'+item.type]"
+              v-for="(item, i) in preData"
+              :key="i"
+              draggable
+              @dragstart="dragstart(item)"
+              @dragend="dragend"
+            >{{item.value}}</span>
+          </div>
+          <div class="from-box-02">
+            <span
+              :class="['target-item', 'type-'+item.type]"
+              v-for="(item, i) in preSign"
+              :key="i"
+              draggable
+              @dragstart="dragstart(item)"
+              @dragend="dragend"
+            >{{item.value}}</span>
+          </div>
+        </div>
+
+        <div class="to-box" @drop="drop" @dragover.prevent>
+          <h3 style="margin-left: 10px;">计算公式：</h3>
           <span
             :class="['target-item', 'type-'+item.type]"
-            v-for="(item, i) in preData"
+            v-for="(item, i) in targetCal"
             :key="i"
             draggable
-            @dragstart="dragstart(item)"
-            @dragend="dragend"
+            @dragstart="dragsOutStart(item)"
+            @dragend="dragOutend"
           >{{item.value}}</span>
         </div>
-        <div class="from-box-02">
-          <span
-            :class="['target-item', 'type-'+item.type]"
-            v-for="(item, i) in preSign"
-            :key="i"
-            draggable
-            @dragstart="dragstart(item)"
-            @dragend="dragend"
-          >{{item.value}}</span>
-        </div>
+        <el-button class="show-cal-btn" v-if="targetCal.length" @click="showCal()">查看计算公式</el-button>
       </div>
-
-      <div class="to-box" @drop="drop" @dragover.prevent>
-        <h3 style="margin-left: 10px;">计算公式：</h3>
-        <span
-          :class="['target-item', 'type-'+item.type]"
-          v-for="(item, i) in targetCal"
-          :key="i"
-          draggable
-          @dragstart="dragsOutStart(item)"
-          @dragend="dragOutend"
-        >{{item.value}}</span>
-      </div>
-      <el-button class="show-cal-btn" v-if="targetCal.length" @click="showCal()">查看计算公式</el-button>
-    </div>
+    </collapse>
   </div>
 </template>
 
@@ -60,8 +63,8 @@ export default {
       ],
       preSign: [
         { type: "s", value: "+" },
-		{ type: "s", value: "-" },
-		{ type: "s", value: "abs" }
+        { type: "s", value: "-" },
+        { type: "s", value: "abs" }
       ],
       targetItem: null,
       targetCal: []
@@ -73,23 +76,23 @@ export default {
     show,
 
     dragstart(item) {
-    //   console.log("dragstart", item);
+      //   console.log("dragstart", item);
       this.targetItem = item;
     },
 
     dragend(event) {
-    //   console.log("dragend", event);
+      //   console.log("dragend", event);
       this.targetItem = null;
     },
 
     drop(event) {
-    //   console.log("drop", event);
+      //   console.log("drop", event);
       this.targetItem._t = new Date().getTime();
       this.targetCal.push(this.targetItem);
     },
 
     dragsOutStart(item) {
-    //   console.log("dragsOutStart", item);
+      //   console.log("dragsOutStart", item);
       this.targetItem = item;
     },
 
